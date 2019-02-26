@@ -1,5 +1,5 @@
-let classifier;
-let featureExtractor;
+let classifier = null;
+let featureExtractor = null;
 let video;
 let loss;
 let label = 'loading model';
@@ -38,6 +38,7 @@ function setup(){
 	div = createDiv().parent(select("#infoDiv")).style('margin-bottom:20px');
 	loadButton = createButton('load').parent(div);
 	loadButton.mousePressed(function () {
+		initializeML();
 		loadSavedModel();
 	});
 
@@ -45,7 +46,7 @@ function setup(){
 	var input = createInput().parent(div);
 	var button = createButton('submit').parent(div); //p5
 	button.mousePressed(function () {
-		initializeML(parseInt(input.value()));
+		initializeML(numClasses=parseInt(input.value()));
 	})
 
 
@@ -70,11 +71,17 @@ function setup(){
 
 }
 
-function initializeML(numClasses){
+function initializeML(numClasses=null){
 	// Extract the already learned features from MobileNet (eventually we want to only use our own training set)
-	featureExtractor = ml5.featureExtractor('MobileNet', modelReady);
-	featureExtractor.numClasses = numClasses;
-
+	console.log(numClasses)
+	if (featureExtractor == null){
+		featureExtractor = ml5.featureExtractor('MobileNet', modelReady);
+	} else {
+		numClasses += featureExtractor.numClasses;
+	}
+	if (numClasses != null){
+		featureExtractor.numClasses = numClasses;
+	}
 	// Initialize the Image Classifier method with MobileNet and the video as the second argument
 	classifier = featureExtractor.classification(video, videoReady);
 	//classifier = featureExtractor.regression(video, videoReady);
