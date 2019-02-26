@@ -1,5 +1,5 @@
 # ml5jsTest
-A simple test of ml5.js with p5.js, for future use in SVL
+A simple test of ml5.js with p5.js, for future use in SVL. A live version is available [here](https://ageller.github.io/ml5jsTest/).
 
 
 I'm working mainly from the example [here](https://github.com/CodingTrain/website/tree/master/Courses/beginner_ml5/06_feature_extractor_load_save).
