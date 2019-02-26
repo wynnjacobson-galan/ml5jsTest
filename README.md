@@ -4,7 +4,7 @@ A simple test of ml5.js with p5.js, for future use in SVL
 
 I'm working mainly from the example [here](https://github.com/CodingTrain/website/tree/master/Courses/beginner_ml5/06_feature_extractor_load_save).
 
-Also see info [here](https://github.com/ml5js/ml5-library), and example[here](https://github.com/ml5js/ml5-examples).
+Also see info [here](https://github.com/ml5js/ml5-library), and examples [here](https://github.com/ml5js/ml5-examples).
 
 Some other notes below (will clean up later)...
 
