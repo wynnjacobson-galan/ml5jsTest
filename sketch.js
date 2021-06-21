@@ -119,7 +119,7 @@ function videoReady() {
 }
 
 function loadSavedModel(){
-	classifier.load('./model/model.json', function() {
+	classifier.load('./model/model-hands.json', function() {
 		select('#modelStatus').html('Custom Model Loaded!');
 	});
 	console.log(classifier)
